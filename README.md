@@ -23,7 +23,7 @@ It's also the base layout for [webteam](https://github.com/itej13/webteam), a su
 | Error logging | Structured JSON logging of every server error (route, method, digest) via Next's `onRequestError` hook; shows up in Vercel runtime logs | `instrumentation.ts` |
 | Config | One place for site name, description, URL and public routes; `.env.example` documents every env var | `lib/site.ts`, `.env.example` |
 | Theming | Light/dark color tokens via CSS variables, Geist fonts via `next/font` | `app/globals.css` |
-| AI-assistant guidance | `CLAUDE.md` with a definition of done and a file-ownership table; `docs/PLAN.md` and `docs/STATUS.md` templates | `CLAUDE.md`, `docs/` |
+| AI-assistant guidance | `CLAUDE.md` with a definition of done; `docs/PLAN.md` template (with the stack, commands and file-ownership table prefilled) and `docs/STATUS.md` | `CLAUDE.md`, `docs/` |
 
 ### Deliberately not included
 A database, auth, and Sentry. Not every site needs them, and each one adds accounts, env vars and cost. Add them when your plan says the site stores data or has users (the `web-backend` and `web-ship` agents in webteam do this through the Vercel Marketplace).

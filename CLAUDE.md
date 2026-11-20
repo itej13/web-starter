@@ -7,22 +7,8 @@
 - Server input is validated at the API boundary. No secrets in code; new env vars go in `.env.example`.
 - Images use `next/image`; interactive elements are keyboard-reachable and labelled.
 
-## File ownership (multi-agent runs; one writer per area)
-| Area | Owner agent |
-|---|---|
-| `docs/PLAN.md` | web-planner |
-| `app/globals.css`, `components/ui/**` | web-designer |
-| `app/**/page.tsx`, `app/**/layout.tsx`, `components/**` (not `ui/`), `lib/content/**` (static site content) | web-frontend |
-| `app/api/**`, `lib/server/**`, `db/**`, `proxy.ts`, `next.config.ts` | web-backend |
-| `e2e/**` | web-tester |
-| `app/sitemap.ts`, `app/robots.ts`, `lib/site.ts`, `app/**/opengraph-image.*` | web-seo |
-| `.github/**`, `instrumentation.ts`, `vercel.ts`, `.env.example` | web-ship |
-| security / performance | review agents: fix inside their findings' file only when the owner is not running |
-
-Rules for shared edges:
-- **Unit tests** (`*.test.ts`) belong to the owner of the file they test. web-tester adds unit tests only where the owner left none, and never rewrites an owner's test.
-- **`lib/site.ts`:** web-frontend may only append new paths to `site.routes`. Every other field is web-seo's.
-- **A file not in this table:** ask the orchestrator before creating it; don't guess.
+## File ownership (multi-agent runs)
+One writer per area. The table lives in `docs/PLAN.md` § Stack › Ownership, the single source every /webteam agent reads.
 
 ## Multi-agent workflow
 Run `/webteam` to build with the agent team. Progress lives in `docs/STATUS.md`.
